@@ -1,0 +1,160 @@
+/*
+Uploadify v3.1.0
+Copyright (c) 2012 Reactive Apps, Ronnie Garcia
+Released under the MIT License <http://www.opensource.org/licenses/mit-license.php> 
+*/
+
+.uploadify {
+	position: relative;
+	margin-bottom: 1em;
+}
+/*.uploadify-button {
+	background-color: #58A2F2;
+	background-image: linear-gradient(bottom, #58A2F2 0%, #4395DE 100%);
+	background-image: -o-linear-gradient(bottom, #58A2F2 0%, #4395DE 100%);
+	background-image: -moz-linear-gradient(bottom, #58A2F2 0%, #4395DE 100%);
+	background-image: -webkit-linear-gradient(bottom, #58A2F2 0%, #4395DE 100%);
+	background-image: -ms-linear-gradient(bottom, #58A2F2 0%, #4395DE 100%);
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, #58A2F2),
+		color-stop(1, #4395DE)
+	);
+	background-position: center top;
+	background-repeat: no-repeat;
+	border: 0px solid #ccc;
+	color: #FFF;
+	font: bold 12px Arial, Helvetica, sans-serif;
+	text-align: center;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+	width: 100%;
+}
+.uploadify:hover .uploadify-button {
+	background-color: #606060;
+	background-image: linear-gradient(top, #606060 0%, #808080 100%);
+	background-image: -o-linear-gradient(top, #606060 0%, #808080 100%);
+	background-image: -moz-linear-gradient(top, #606060 0%, #808080 100%);
+	background-image: -webkit-linear-gradient(top, #606060 0%, #808080 100%);
+	background-image: -ms-linear-gradient(top, #606060 0%, #808080 100%);
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, #606060),
+		color-stop(1, #808080)
+	);
+	background-position: center bottom;
+}*/
+.uploadify-button.disabled {
+	background-color: #D0D0D0;
+	color: #808080;
+}
+.uploadify-queue {
+	margin-bottom: 1em;
+}
+.uploadify-queue-item {
+	background-color: #F5F5F5;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	font: 11px Verdana, Geneva, sans-serif;
+	margin-top: 5px;
+ 	padding: 10px;
+	background-color: #fff;
+	border: 1px solid #dbe2e7;
+	border-color: #dbe2e7;
+	border-bottom-color: #d5dde3;
+	-webkit-box-shadow: 0 1px 1px rgba(90,90,90,0.1);
+	box-shadow: 0 1px 1px rgba(90,90,90,0.1);
+}
+.uploadify-error {
+	background-color: #FDE5DD !important;
+}
+.uploadify-queue-item .cancel a {
+	background: url(uploadify-cancel.png) 0 0 no-repeat;
+	float: right;
+	height:	16px;
+	text-indent: -9999px;
+	width: 16px;
+}
+.uploadify-queue-item.completed {
+	background-color: #E5E5E5;
+}
+.uploadify-progress {
+	background-color: #E5E5E5;
+	margin-top: 10px;
+	width: 100%;
+}
+.uploadify-progress-bar {
+	background-color: #0099FF;
+	height: 3px;
+	width: 1px;
+}
+
+
+/*页面*/
+body{font-family: Arial, '微软雅黑';margin:0 auto;padding:0; background:url(../images/bg.jpg) repeat;font-size:12px;color:#000;}
+    .container { width:980px; margin:0px auto; }
+    .section { background-color:#fff; padding:10px;}
+    .row span.label{float:left;position:relative;line-height:30px;margin-left:-94px;width:84px;text-align:right; color:#5b5b5b;}
+    .btn_submit {background:url(../images/submit.gif) no-repeat;width:70px;height:29px;border:0;}
+    .btn {
+        height:35px;
+        width: 120px;
+        margin-bottom: 0;
+        font-size: 14px;
+        line-height: 35px;
+        border: 0px solid #ccc;
+        text-align: center;
+        cursor: pointer;
+        float: left;
+        margin-right: 20px;
+        color: #fff;
+        text-decoration:none;
+    }
+ 
+    .page-header-fixed .page-container{
+        margin-top: 0;
+    }
+ .uploadify-button, .uploadify-button ,.btn2 {
+	height:35px;
+    width: 120px;
+    line-height: 35px;
+	text-align: center;
+    margin-bottom: 0;
+	display: inline-block;
+	border: 1px solid #fff;
+	text-transform: uppercase;
+	letter-spacing: 0.015em;
+	font-size: 16px;
+	color: #fff;
+	text-decoration: none;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.25);        
+	background-color: #58A2F2;
+	margin-right: 20px;
+}
+   .yellow {
+        background-color: #FFA200;
+    }
+    .black {
+        background-color: #33383E;
+    }
+/* .uploadify-button:hover,.btn2:hover {
+
+
+	-moz-box-shadow: 0 10px 10px 0 rgba(255, 255, 255, .10)inset, 0 2px 7px 0 rgba(0, 0, 0, .2);
+	-webkit-box-shadow: 0 10px 10px 0 rgba(255, 255, 255, .10)inset, 0 2px 7px 0 rgba(0, 0, 0, .2);
+	box-shadow: 0 10px 10px 0 rgba(255, 255, 255, .10)inset, 0 2px 7px 0 rgba(0, 0, 0, .2);
+}*/
+
+ .uploadify-button:hover,.btn2:hover  {
+	color: #FFA200;
+	background-color: #fff;
+	border: 1px solid #FFA200;
+}

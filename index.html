@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" class="ZSmart">
+<head>  
+    <meta charset="utf-8" />
+    <title>ZSmart UED 上传照片</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="css/fish-desktop.css"      type="text/css" /><!-- fish-desktop  -->
+    <link rel="stylesheet" href="css/ZSmart.css"            type="text/css" /><!-- ZSmart UED UI 样式 -->
+    <link rel="stylesheet" href="css/animate.css"           type="text/css" /><!-- 动画效果 -->
+    <link rel="stylesheet" href="css/font-awesome.min.css"  type="text/css" /><!-- 图标1 -->
+    <link rel="stylesheet" href="css/simple-line-icons.css" type="text/css" /><!-- 图标2 -->
+    <link rel="stylesheet" href="css/style.css"             type="text/css" /><!-- 项目特有样式  -->
+    <link href="uploadify/uploadify.css" type="text/css" rel="stylesheet" /> 
+    <link rel="stylesheet" href="jcrop/jquery.Jcrop.css" type="text/css" />
+    <!--[if lt IE 9]>
+      <script src="js/ie/html5shiv.js"></script>
+      <script src="js/ie/respond.min.js"></script>
+      <script src="js/ie/excanvas.js"></script>
+    <![endif]-->
+    <style type="text/css">
+      body{
+        color: #788188;
+        background-color: #f2f4f8;
+        -webkit-font-smoothing: antialiased;
+        line-height: 1.40;
+      }
+    </style>  
+</head>
+<body >
+  <!-- 最外层 -->
+  <section class="vbox">
+      <header class="header header-md  bg-white-only navbar navbar-fixed-top-xs">
+        <div class="navbar-header aside">
+            <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+              <i class="icon-list"></i>
+            </a>
+            <a href="index.html" class="navbar-brand text-lt">
+             <!--  <i class="icon-earphones"></i> -->
+              <img src="images/logo.png" alt="ZSmart UED 上传照片">
+              <span class="hidden-nav-xs m-l-sm hide">ZSmart UED</span>
+            </a>
+            <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".user">
+              <i class="icon-settings"></i>
+            </a>
+        </div>  
+       
+       <div class="navbar-right hidden-xs"> 
+              <ul class="nav navbar-nav m-n hidden-xs nav-user user">
+                    <ul class="nav">
+                 <li class="current-menu-item  menu-item menu-item-type-custom menu-item-object-custom menu-item-13" id="menu-item-13"><a href="/">设计作品</a></li>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12" id="menu-item-12"><a href="/ued">设计视角</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9"><a href="/ued/?cat=37">团队生活</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9" id="menu-item-9"><a href="/about.html">关于我们</a></li>
+                </ul> 
+                </ul>  
+        </div> 
+          <!-- /右边头部内容 end -->      
+      </header><!-- /header --> 
+      <section>
+          <section  class="hbox stretch">
+            <section>
+                <section class="vbox">
+                    <section class="scrollable wrapper-lg padder-lg">  
+                        <div class="row panel">
+                            <form > 
+                            <div class="col-sm-12">
+                                 <div class="col-sm-6">
+                              <h4 class="m-t-lg m-b" id="tophead" >您的信息</h4>
+                               <div class="form-group pull-in clearfix">
+                                <div class="col-sm-6">
+                                  <label>姓名</label>
+                                  <input type="text" class="form-control"  id="name" value=""  placeholder="Name">
+                                </div>
+                                <div class="col-sm-6">
+                                  <label>工号</label>
+                                  <input type="email" class="form-control"  id= "id" value=""  placeholder="Employee ID">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label>签名</label>
+                                <textarea class="form-control" rows="3"  id= "motto"   value="" placeholder="输入你的签名"></textarea>
+                              </div>
+                            <!--   <div class="form-group">
+                                <button type="submit" class="btn btn-success"><i class="fa fa-heart-o text"></i>我写好了</button>
+                              </div> -->
+                           </div>
+                           </div>
+                            <div class="col-sm-6 pf15">
+                                <div > 
+                                    <div class="m-b"> 
+                                        <h4 class=" m-b"> 上传照片：</h4> （请上传横版，比例为3:2的图片，文件最大限制为10M <a   target="_blank" href="http://10.45.15.58/photo/images/demo.jpg" title="">点此查看样图</a>）
+                                        <input type="text" id="avatarUpload" value="" />
+                                        <input type="hidden" id="img" name="img" />
+                                        <input type="hidden" id="x" name="x" />
+                                        <input type="hidden" id="y" name="y" />
+                                        <input type="hidden" id="w" name="w" />
+                                        <input type="hidden" id="h" name="h" />
+                                        <div >
+                                  <a  id="Upload" class="btn btn-s-md btn-success">开始上传</a>
+                                  <a href="javascript:$('#avatarUpload').uploadify('cancel', '*')"  class="btn btn-s-md btn-dark">取消上传</a>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="row imgchoose" style="display:none;">编辑照片：<br /><img src="" id="target" /></div>
+                                    <div class="row imgchoose" style="display:none;">
+                                        照片预览：<br />
+                                        <div style="width:200px;height:200px;margin:10px 10px 10px 0;overflow:hidden; float:left;"><img class="preview" id="preview3" src="" /></div> 
+                                    </div>
+                                    <div class="row">
+                                        <input type="button" class="btn_submit" value="" id="avatar_submit" style="display:none;" />
+                                    </div>
+
+                                       <div class="row " id="avatar_msg" style="font-weight:700;color:#f00;display:none;">上传成功，让我们一起摇摆！</div> 
+                                  
+                                    <div class="row " id="Uimg"  style=" display:none;">
+                                         <img id="avatar" src="images/default.jpg"  />
+                                    </div>
+                                </div>
+                            </div>
+                          </form>
+                        </div>
+                    </section>
+                </section>
+            </section>
+            <!-- /右侧主内容区 -->
+          </section><!-- /hbox -->
+      </section>
+      <!-- /主体内容 END -->
+  </section>
+  <script src="js/jquery.js"></script>
+   <!-- Bootstrap  -->
+  <script src="js/bootstrap.js"></script>
+  <!-- 项目公共功能  -->
+  <script src="js/ZSmart.js"></script>
+  <script type="text/javascript" src="uploadify/jquery.uploadify-3.1.js"></script>
+  <script type="text/javascript" src="jcrop/jquery.Jcrop.min.js"></script>
+  <script type="text/javascript">
+
+$(function() {
+  $("#Upload").click(function(){
+    $('#avatarUpload').uploadify('upload','*');
+   var id = $("#id").val();
+   console.log(parseInt(id));
+  })
+    $("#avatarUpload").uploadify({
+        'debug'             : false,    //开启调试
+        'auto'              : false,    //是否自动上传
+        'multi'             : false,    //是否多次上传  
+        'uploadLimit'       : 1,
+        'formData'          : {'uid':parseInt(id),'uname':'-majinyun','motto':'Cannondale'}, //附带值
+        'buttonText'        : '请选择图片',
+        'height'            : 35,
+        'width'             : 120,
+        'removeCompleted'   : false,
+        'swf'               : 'uploadify/uploadify.swf',
+        'uploader'          : 'upload.php',
+        'fileTypeExts'      : '*.gif; *.jpg; *.jpeg; *.png;',//设置上传文件类型为常用图片格式  
+        'fileSizeLimit'     : '10240KB', //设置上传文件大小单位kb 
+        'onUploadSuccess' : function(file, data, response) {
+            var msg = $.parseJSON(data);
+            if( msg.result_code == 1 ){
+                $("#img").val( msg.result_des );
+                $("#target").attr("src",msg.result_des);
+                $(".preview").attr("src",msg.result_des);
+                $('#target').Jcrop({
+                    minSize: [300,200],
+                    setSelect: [0,0,600,300],
+                    onChange: updatePreview,
+                    onSelect: updatePreview,
+                    onSelect: updateCoords,
+                    allowResize: true,
+                    fadeTime    : 400,
+                    dragEdges   : true,
+                    aspectRatio  : 1.5//设置比例
+                },
+                function(){
+                    // Use the API to get the real image size
+                    var bounds = this.getBounds();
+                    boundx = bounds[0];
+                    boundy = bounds[1];
+                    // Store the API in the jcrop_api variable
+                    jcrop_api = this;
+                });
+                $(".imgchoose").show(100);
+                $("#avatar_submit").show(100);
+                $('html,body').animate({scrollTop:$('#avatarUpload').offset().top+160},1000,'swing',function(){
+                     });
+            } else {
+                alert('图片上传失败');
+            }
+        },
+        'onError' : function (event,ID,fileObj,errorObj) {  
+            $('#id_span_msg').html("上传失败，错误码:"+errorObj.type+" "+errorObj.info);  
+        },  
+        'onClearQueue' : function(queueItemCount) {
+            alert( $('#img1') );
+        },
+        'onCancel' : function(file) {
+            alert('您放弃了 ' + file.name + '的上传.');
+        }
+    });
+    
+    //照片裁剪
+    var jcrop_api, boundx, boundy;
+    
+    function updateCoords(c)
+    {
+        $('#x').val(c.x); //选中区域左上角横坐标 
+        $('#y').val(c.y);
+        $('#w').val(c.w); ////得到选中区域的宽度 
+        $('#h').val(c.h);
+    };
+    function checkCoords(){
+        if (parseInt($('#w').val())) return true;
+        alert('请选择图片上合适的区域');
+        return false;
+    };
+    function updatePreview(c){  
+            var rx = 300 / c.w;
+            var ry = 200 / c.h;
+            $('#preview3').css({
+                width: (Math.round(rx * boundx) *2)+ 'px',
+                height: Math.round(ry * boundy) + 'px',
+                marginLeft: '-' + (Math.round(rx * c.x)*2 )+ 'px',
+                marginTop: '-' + Math.round(ry * c.y) + 'px'
+            }); 
+    };
+    
+    $("#avatar_submit").click(function(){
+        var img = $("#img").val();
+        var x = $("#x").val();
+        var y = $("#y").val();
+        var w = $("#w").val();
+        var h = $("#h").val();
+        if( checkCoords() ){
+            $.ajax({
+                type: "POST",
+                url: "resize.php",
+                data: {"img":img,"x":x,"y":y,"w":w,"h":h},
+                dataType: "json",
+                success: function(msg){
+                    if( msg.result_code == 1 ){
+                         $('#avatar_msg').show();
+                        $('html,body').animate({scrollTop:$('#tophead').offset().top-100},1000,'swing',function(){
+                            $('#Uimg').show();
+                            $('#avatar').attr('src',msg.result_des.big);
+                        });
+                    } else {
+                        alert("图片没弄好，失败咯");
+                    }
+                }
+            });
+        }
+    });
+});
+</script> 
+</body>
+</html>
