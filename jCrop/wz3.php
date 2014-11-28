@@ -89,7 +89,7 @@ class showChinaText {
         imageString($image,5,50,10,$txt,$white);  
         //显示图形  
         imagejpeg ( $image );  
-        imagegif ( $image, "104.jpg" );  
+        imagegif ( $image, "1078.jpg" );  
      
     }  
 }  
@@ -99,7 +99,6 @@ class showChinaText {
   
 //使用  
 $s = new showChinaText ();  
-echo json_encode($image);
    ImageDestroy ( $image );  
 exit();
 ?>  
