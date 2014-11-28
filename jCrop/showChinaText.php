@@ -1,5 +1,6 @@
 <?php  
 /* 
+利用php在图片上写字(中英文)
 param $image   图象资源 
 param size     字体大小 
 param angle    字体输出角度 
@@ -11,7 +12,7 @@ param content 要在图片里显示的内容
 
 class showChinaText {  
     var $text = 'haha结婚啦，北京市海淀区香格里拉酒店! '; 
-    var $font = 'D:/wamp/www/jCrop/fonts/msyhbd.ttc'; //如果没有要自己加载到相应的目录下（本地www）  
+    var $font = 'D:/wamp/www/jCrop/fonts/msyhbd.ttc'; //如果没有要自己加载到相应的目录下 ,本地www,可替换
     var $angle = 0;  
     var $size = 15;  
     var $showX = 100;  
@@ -40,13 +41,13 @@ class showChinaText {
          header("Content-type: image/jpg");
         //建立图象  
         //$image = imagecreate(400,300);  
-        $image = imagecreatefromjpeg ( "1.jpg" ); //这里的图片，换成你的图片路径  
+        $image = imagecreatefromjpeg ( "1.jpg" ); //这里是原始图片
         //定义颜色  
         $red = ImageColorAllocate ( $image, 255, 0, 0 );  
         $white = ImageColorAllocate ( $image, 255, 255, 255 );  
         $black = ImageColorAllocate ( $image, 0, 0, 0 );  
         //填充颜色  
-       // ImageFilledRectangle($image,0,0,200,200,$red);  
+        // ImageFilledRectangle($image,0,0,200,200,$red);  
         //显示文字  
         $txt = $this->createText ( $this->text ); 
         //写入文字  
@@ -56,19 +57,18 @@ class showChinaText {
         $showY = $info['width']-20;  
         alert( $showX); 
         imagettftext ( $image, $this->size, $this->angle, $this->$showX, $this->$showY, $white, $this->font, $txt ); 
-       //  imageString($image,5,50,10,$txt,$white);  //参数说明：5-指文字的大小。 
+        //  imageString($image,5,50,10,$txt,$white);  //参数说明：5-指文字的大小。 
 
         //显示图形  
         imagejpeg ( $image );  
-        imagegif ( $image, "105.jpg" );  
-     
+        imagegif ( $image, "105.jpg" );   
     }  
 }  
 ?>  
 
 <?php  
   
-//使用  
+//调用方式
 $s = new showChinaText ();  
    ImageDestroy ( $image );   
 ?>  
