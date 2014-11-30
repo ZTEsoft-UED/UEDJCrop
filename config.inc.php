@@ -10,8 +10,8 @@ function resize( $ori ){
 	$info = getImageInfo( ROOT_PATH . $ori );
 	if( $info ){
         //上传图片后切割的最大宽度和高度
-		$width = 860;
-		$height =570;
+		$width = 900;
+		$height =600;
 		$scrimg = ROOT_PATH . $ori;
         if( $info['type']=='jpg' || $info['type']=='jpeg' ){
             $im = imagecreatefromjpeg( $scrimg );
@@ -33,7 +33,7 @@ function resize( $ori ){
 		}
 		$newimg = imagecreatetruecolor( $width, $height );
 		imagecopyresampled( $newimg, $im, 0, 0, 0, 0, $width, $height, $info['width'], $info['height'] );
-		imagejpeg( $newimg, ROOT_PATH . $ori );
+		imagejpeg( $newimg, ROOT_PATH .$ori );
 		imagedestroy( $im );
 	}
 	return;

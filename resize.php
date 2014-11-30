@@ -2,7 +2,8 @@
 header("Content-Type:text/html;charset=utf-8");
 
 include 'config.inc.php'; 
- include 'showChinaText.php'; 
+include 'showChinaText.php'; 
+
 if( !$image = $_POST["img"] ){
     $ret['result_code'] = 101;
     $ret['result_des'] = "图片不存在";
@@ -55,7 +56,7 @@ if( !$image = $_POST["img"] ){
 
         $destImg=str_replace(ROOT_PATH, "", $thumbname01);
 
-        new showChinaText ($destImg,"你677惊声尖叫");  
+        new showChinaText ($destImg, $_POST['usign'] );  
         
         imagedestroy($thumbImg01); 
         imagedestroy($thumbImg);

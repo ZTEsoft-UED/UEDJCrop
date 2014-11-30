@@ -3,7 +3,8 @@
 include 'config.inc.php';
 
 if (!empty($_FILES)) {
-    $uid = intval( $_REQUEST['uid'] );
+    $uid =  ( $_REQUEST['uid'] );
+  //  $usign =   $_REQUEST['usign'] ;
     $ext = pathinfo($_FILES['Filedata']['name']);
     $ext = strtolower($ext['extension']);
     $tempFile = $_FILES['Filedata']['tmp_name'];
@@ -11,7 +12,7 @@ if (!empty($_FILES)) {
     if( !is_dir($targetPath) ){
         mkdir($targetPath,0777,true);
     }
-    $new_file_name = 'avatar_ori.'.$ext;
+    $new_file_name =  "img-".$uid.".".$ext;
     $targetFile = $targetPath . $new_file_name;
     move_uploaded_file($tempFile,$targetFile);
     if( !file_exists( $targetFile ) ){
@@ -21,7 +22,7 @@ if (!empty($_FILES)) {
         $ret['result_code'] = 101;
         $ret['result_des'] = 'File is not exist';
     } else {
-        $img = 'uploads/'.$new_file_name;
+        $img = 'uploads/'.$new_file_name; 
         resize($img);
         $ret['result_code'] = 1;
         $ret['result_des'] = $img;

@@ -1,19 +1,22 @@
 <?php  
 /* 
 利用php在图片上写字(中英文)
+
+传入 图片和 文字就好。
+
 2014-11-29 00:40:40
 param $image   图象资源 
 param size     字体大小 
 param angle    字体输出角度 
 param showX    输出位置x坐标 
 param showY    输出位置y坐标 
-param font    字体文件位置 
-param content 要在图片里显示的内容 
+param font     字体文件位置 
+param content  要在图片里显示的内容 
 */  
 
 class showChinaText {  
     var $imgUrl = '1.jpg'; 
-    var $text = '测试文字内容'; 
+    var $text = '测试文字 - ZTEsoft'; 
     var $font = 'D:/wamp/www/jCrop/fonts/msyhbd.ttc'; //如果没有要自己加载到相应的目录下 ,本地www,可替换
     var $angle = 0;  
     var $size = 15;  
@@ -47,7 +50,7 @@ class showChinaText {
         //$image = imagecreate(400,300);  
         $image = imagecreatefromjpeg( $this->imgUrl ); //这里是原始图片
         //定义颜色  
-        $red = ImageColorAllocate($image, 255, 0, 0 );  
+        $red   = ImageColorAllocate($image, 255, 0, 0 );  
         $white = ImageColorAllocate( $image, 255, 255, 255 );  
         $black = ImageColorAllocate( $image, 0, 0, 0 );  
         //填充颜色  
@@ -56,12 +59,12 @@ class showChinaText {
         $txt = $this->createText( $this->text ); 
         //写入文字  
          imagettftext( $image, $this->size, $this->angle, $this->showX, $this->showX, $white, $this->font, $txt ); 
-        //  imageString($image,5,50,10,$txt,$white);  //参数说明：5-指文字的大小。 
-
+ 
         //显示图形  
         //imagejpeg( $image );   
         imagegif( $image, $this->imgUrl);  
         ImageDestroy ( $image ); 
     }  
 }  
+
 ?>
