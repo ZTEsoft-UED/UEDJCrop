@@ -14,7 +14,7 @@
 
 <style type="text/css">
 body{font-family: Arial, '微软雅黑';margin:0 auto;padding:0; background:url(images/bg.jpg) repeat;font-size:12px;color:#000;}
-.container { width:980px; margin:0px auto; }
+.container { width:1080px; margin:0px auto; }
 .section { background-color:#fff; padding:10px;}
 .row{overflow:hidden; margin-top:20px;line-height:30px;padding-left:94px;}
 .row span.label{float:left;position:relative;line-height:30px;margin-left:-94px;width:84px;text-align:right; color:#5b5b5b;}
@@ -75,51 +75,53 @@ body{font-family: Arial, '微软雅黑';margin:0 auto;padding:0; background:url(
             <div class="page-content-wrapper">
                 <div class="page-content">
                     <div class="row">
-                        <div class="col-md-10 col-md-offset-1"> 
-                            <div class="container">
-                                <div class="section">
-                                    <div class="row" id="avatar_msg" style="font-weight:700;color:#f00;display:none;">上传成功，让我们一起摇摆！</div>
-                                    <div class="row" style="   width: 100%;">
-                                        <label><span class="label">当前照片：</span></label>
-                                        <img id="avatar" src="images/default.jpg"  />
-                                    </div>
-                                    <div class="row">
-                                        <label><span class="label"> 上传照片：</span></label>
-                                        <input type="text" id="avatarUpload" value="" />
-                                        <input type="hidden" id="img" name="img" />
-                                        <input type="hidden" id="x" name="x" />
-                                        <input type="hidden" id="y" name="y" />
-                                        <input type="hidden" id="w" name="w" />
-                                        <input type="hidden" id="h" name="h" />
-                                        <div style="padding-top:-10px;">
-                                            <a href="javascript:$('#avatarUpload').uploadify('upload','*')" class="btn yellow">开始上传</a>
-                                            <a href="javascript:$('#avatarUpload').uploadify('cancel', '*')"  class="btn black">取消上传</a>
-                                        </div>
-                                    </div>
-                                    <div class="row imgchoose" style="display:none;">编辑照片：<br /><img src="" id="target" /></div>
-                                    <div class="row imgchoose" style="display:none;">
-                                        照片预览：<br />
-                                        <div style="width:200px;height:200px;margin:10px 10px 10px 0;overflow:hidden; float:left;"><img class="preview" id="preview3" src="" /></div>
-                                        <!-- <div style="width:130px;height:130px;margin:80px 0 10px;overflow:hidden; float:left;"><img class="preview" id="preview2" src="" />
-                                        </div>
-                                        <div style="width:112px;height:112px;margin:98px 0 10px 10px;overflow:hidden; float:left;"><img class="preview" id="preview" src="" />
-                                        </div> -->
-                                    </div>
-                                    <div class="row">
-                                        <input type="button" class="btn_submit" value="" id="avatar_submit" style="display:none;" />
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-md-10 col-md-offset-1">
+                           
 
-
-                </div>
+<div class="container">
+    <div class="section">
+        <div class="row" id="avatar_msg" style="font-weight:700;color:#f00;display:none;">上传成功，让我们一起摇摆！</div>
+        <div class="row" style="   width: 100%;">
+            <label><span class="label">当前照片：</span></label>
+            <img id="avatar" src="images/default.jpg"  />
+        </div>
+        <div class="row">
+            <label><span class="label"> 上传照片：</span></label>
+            <input type="text" id="avatarUpload" value="" />
+            <input type="hidden" id="img" name="img" />
+            <input type="hidden" id="x" name="x" />
+            <input type="hidden" id="y" name="y" />
+            <input type="hidden" id="w" name="w" />
+            <input type="hidden" id="h" name="h" />
+            <div style="padding-top:-10px;">
+                <a href="javascript:$('#avatarUpload').uploadify('upload','*')" class="btn yellow">开始上传</a>
+                <a href="javascript:$('#avatarUpload').uploadify('cancel', '*')"  class="btn black">取消上传</a>
             </div>
-            <!-- END PAGE HEADER-->
-             
+        </div>
+        <div class="row imgchoose" style="display:none;">编辑照片：<br /><img src="" id="target" /></div>
+        <div class="row imgchoose" style="display:none;">
+            照片预览：<br />
+            <div style="width:200px;height:200px;margin:10px 10px 10px 0;overflow:hidden; float:left;"><img class="preview" id="preview3" src="" /></div>
+            <!-- <div style="width:130px;height:130px;margin:80px 0 10px;overflow:hidden; float:left;"><img class="preview" id="preview2" src="" />
+            </div>
+            <div style="width:112px;height:112px;margin:98px 0 10px 10px;overflow:hidden; float:left;"><img class="preview" id="preview" src="" />
+            </div> -->
+        </div>
+        <div class="row">
+            <input type="button" class="btn_submit" value="" id="avatar_submit" style="display:none;" />
         </div>
     </div>
 </div>
-<!-- END CONTENT -->
+
+
+                        </div>
+                    </div>
+                    <!-- END PAGE HEADER-->
+                     
+                </div>
+            </div>
+        </div>
+        <!-- END CONTENT -->
     </div> 
     <div class="footer">
         <div class="foot-link">
@@ -148,6 +150,7 @@ body{font-family: Arial, '微软雅黑';margin:0 auto;padding:0; background:url(
 <link rel="stylesheet" href="jcrop/jquery.Jcrop.css" type="text/css" />
 <script type="text/javascript">
 $(function() {
+    //首页轮播图1
     $("#avatarUpload").uploadify({
         'debug'             : false,    //开启调试
         'auto'              : false,  //是否自动上传
@@ -185,9 +188,8 @@ $(function() {
                     jcrop_api = this;
                 });
                 $(".imgchoose").show(100);
-               $("#avatar_submit").show(100);
-                  $('html,body').animate({scrollTop:$('#avatarUpload').offset().top+160},1000,'swing',function(){
-                     });
+                $("#avatar_submit").show(100);
+                $('html,body').animate({scrollTop:$('#avatarUpload').offset().top+160},1000,'swing');
             } else {
                 alert('图片上传失败');
             }
@@ -216,28 +218,7 @@ $(function() {
         alert('请选择图片上合适的区域');
         return false;
     };
-    function updatePreview(c){
-        if (parseInt(c.w) > 0){
-            var rx = 112 / c.w;
-            var ry = 112 / c.h;
-            $('#preview').css({
-                width: Math.round(rx * boundx) + 'px',
-                height: Math.round(ry * boundy) + 'px',
-                marginLeft: '-' + Math.round(rx * c.x) + 'px',
-                marginTop: '-' + Math.round(ry * c.y) + 'px'
-            });
-        }
-        {
-            var rx = 130 / c.w;
-            var ry = 130 / c.h;
-            $('#preview2').css({
-                width: Math.round(rx * boundx) + 'px',
-                height: Math.round(ry * boundy) + 'px',
-                marginLeft: '-' + Math.round(rx * c.x) + 'px',
-                marginTop: '-' + Math.round(ry * c.y) + 'px'
-            });
-        }
-        {
+    function updatePreview(c){ 
             var rx = 200 / c.w;
             var ry = 200 / c.h;
             $('#preview3').css({
@@ -245,8 +226,7 @@ $(function() {
                 height: Math.round(ry * boundy) + 'px',
                 marginLeft: '-' + Math.round(rx * c.x) + 'px',
                 marginTop: '-' + Math.round(ry * c.y) + 'px'
-            });
-        }
+            }); 
     };
     
     $("#avatar_submit").click(function(){
@@ -265,7 +245,7 @@ $(function() {
                     if( msg.result_code == 1 ){
                         $('html,body').animate({scrollTop:$('#avatar').offset().top-150},1000,'swing',function(){
                             $('#avatar_msg').show();
-                            $('#avatar').attr('src',msg.result_des.small);
+                            $('#avatar').attr('src',msg.result_des.big);
                         });
                     } else {
                         alert("图片没弄好，失败咯");
@@ -275,6 +255,7 @@ $(function() {
         }
     });
 });
-</script> 
+</script>
+
 </body>
 </html>

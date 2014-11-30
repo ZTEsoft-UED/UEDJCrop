@@ -12,17 +12,20 @@ param content 要在图片里显示的内容
 */  
 
 class showChinaText {  
-    var $text = 'GYY结婚啦，北京市海淀区香格里拉酒店! '; 
+    var $imgUrl = '1.jpg'; 
+    var $text = '测试文字内容'; 
     var $font = 'D:/wamp/www/jCrop/fonts/msyhbd.ttc'; //如果没有要自己加载到相应的目录下 ,本地www,可替换
     var $angle = 0;  
-    var $size = 16;  
-    var $showX = 50;  
-    var $showY = 100;   
-      
-    function showChinaText($showText = '') {  
-        $this->text = ! isset( $showText ) ? $showText : $this->text;  
-        $this->show();  
-    }  
+    var $size = 15;  
+    var $showX =650;  
+    var $showY =510;   
+
+    function showChinaText($imgUrl='',$showText=''){
+        $this->imgUrl = isset( $imgUrl ) ? $imgUrl : $this->imgUrl; 
+        $this->text = isset( $showText ) ? $showText : $this->text; 
+        $this->show(); 
+    }
+
     function createText($instring) {  
         $outstring = "";  
         $max = strlen( $instring );  
@@ -39,10 +42,10 @@ class showChinaText {
     }  
     function show() {  
         //输出头内容  
-         header("Content-type: image/jpg");
+         //header("Content-type: image/jpg");
         //建立图象  
         //$image = imagecreate(400,300);  
-        $image = imagecreatefromjpeg( "1.jpg" ); //这里是原始图片
+        $image = imagecreatefromjpeg( $this->imgUrl ); //这里是原始图片
         //定义颜色  
         $red = ImageColorAllocate($image, 255, 0, 0 );  
         $white = ImageColorAllocate( $image, 255, 255, 255 );  
@@ -56,16 +59,9 @@ class showChinaText {
         //  imageString($image,5,50,10,$txt,$white);  //参数说明：5-指文字的大小。 
 
         //显示图形  
-        imagejpeg( $image );  
-        imagegif( $image, "1055.jpg" );   
+        //imagejpeg( $image );   
+        imagegif( $image, $this->imgUrl);  
+        ImageDestroy ( $image ); 
     }  
 }  
-?>  
-
-<?php  
-  
-//调用方式
-	$s = new showChinaText ();  
-    ImageDestroy ( $image );  
-	exit();
-?>  
+?>

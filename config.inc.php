@@ -10,8 +10,8 @@ function resize( $ori ){
 	$info = getImageInfo( ROOT_PATH . $ori );
 	if( $info ){
         //上传图片后切割的最大宽度和高度
-		$width = 900;
-		$height =600;
+		$width = 860;
+		$height =570;
 		$scrimg = ROOT_PATH . $ori;
         if( $info['type']=='jpg' || $info['type']=='jpeg' ){
             $im = imagecreatefromjpeg( $scrimg );
