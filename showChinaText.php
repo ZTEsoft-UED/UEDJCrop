@@ -20,8 +20,8 @@ class showChinaText {
     var $font = 'D:/wamp/www/jCrop/fonts/msyhbd.ttc'; //如果没有要自己加载到相应的目录下 ,本地www,可替换
     var $angle = 0;  
     var $size = 15;  
-    var $showX =650;  
-    var $showY =510;   
+    var $showX =150;  
+    var $showY =650;   
 
     function showChinaText($imgUrl='',$showText=''){
         $this->imgUrl = isset( $imgUrl ) ? $imgUrl : $this->imgUrl; 
@@ -58,10 +58,9 @@ class showChinaText {
         //显示文字  
         $txt = $this->createText( $this->text ); 
         //写入文字  
-         imagettftext( $image, $this->size, $this->angle, $this->showX, $this->showX, $white, $this->font, $txt ); 
+         imagettftext( $image, $this->size, $this->angle, $this->showX, $this->showY, $white, $this->font, $txt ); 
  
-        //显示图形  
-        //imagejpeg( $image );   
+        //显示图形  //imagejpeg( $image );   
         imagegif( $image, $this->imgUrl);  
         ImageDestroy ( $image ); 
     }  
