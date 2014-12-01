@@ -16,18 +16,18 @@ param content  要在图片里显示的内容
 class showName {  
     var $imgUrl = '1.jpg'; 
     var $text = '名字 - ZTEsoft'; 
-    var $font = 'D:/wamp/www/jCrop/fonts/msyhbd.ttc'; //如果没有要自己加载到相应的目录下 ,本地www,可替换
+    var $font = 'fonts/msyhbd.ttc'; //如果没有要自己加载到相应的目录下 ,本地www,可替换
     var $angle = 0;  
-    var $size = 26;  
+    var $size = 28;  
     var $showX =25;  
-    var $showY =1000;   
+    var $showY =1010;   
 
     var $text2 = '签名 - ZTEsoft'; 
-    var $font2 = 'D:/wamp/www/jCrop/fonts/msyhbd.ttc'; //如果没有要自己加载到相应的目录下 ,本地www,可替换 
-      var $size2 = 26;  
+    var $font2 = 'fonts/msyhbd.ttc'; //如果没有要自己加载到相应的目录下 ,本地www,可替换 
+      var $size2 = 28;  
     var $angle2 = 0;  
     var $showX2 =180;  
-    var $showY2 =1000;   
+    var $showY2 =1010;   
 
     function showName($imgUrl='',$showText='',$usign=''){
         $this->imgUrl = isset( $imgUrl ) ? $imgUrl : $this->imgUrl; 

@@ -11,7 +11,7 @@ body{_background-image: url(about:blank); _background-attachment: fixed;}
 .hai_tips .h-header{padding: 0 10px;height:30px;font-size: 14px;background-color:#EBEBEB;color:#353535;position: relative;}
 .hai_tips .h-header .x-title{height:30px;line-height: 30px;font-weight: bold;display: inline-block;margin-right: 20px}
 .hai_tips .h-header .x-close{height:28px;width:28px; line-height: 28px;position: absolute;right: 0px;cursor: pointer;font-weight: bold;color:#666;display: inline-block;}
-.hai_tips .h-content{padding: 20px 25px;color: #585858;background-color: #FFFFFF;line-height: 1.4em;}
+.hai_tips .h-content{padding: 20px 25px;min-width:300px;text-align: center;color: #585858;background-color: #FFFFFF;line-height: 1.4em;}
 .hai_tips .h-buttons{font-size: 12px;background-color: #FFFFFF;text-align: right;height:50px;line-height: 50px;}
 .hai_tips .h-buttons .x-ok{margin-right: 15px;}
 .hai_tips .h-buttons .x-cancel{margin-right: 25px;}
