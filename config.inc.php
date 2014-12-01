@@ -1,5 +1,5 @@
 <?php
-
+header("Content-Type:text/html;charset=utf-8");
 //路径可以修改为自动获取
 define( 'ROOT_PATH', realpath(dirname(__FILE__)).'/' );
 
@@ -10,8 +10,8 @@ function resize( $ori ){
 	$info = getImageInfo( ROOT_PATH . $ori );
 	if( $info ){
         //上传图片后切割的最大宽度和高度
-		$width = 900;
-		$height =600;
+		$width = 1200;
+		$height =800;
 		$scrimg = ROOT_PATH . $ori;
         if( $info['type']=='jpg' || $info['type']=='jpeg' ){
             $im = imagecreatefromjpeg( $scrimg );
@@ -33,7 +33,7 @@ function resize( $ori ){
 		}
 		$newimg = imagecreatetruecolor( $width, $height );
 		imagecopyresampled( $newimg, $im, 0, 0, 0, 0, $width, $height, $info['width'], $info['height'] );
-		imagejpeg( $newimg, ROOT_PATH .$ori );
+		imagejpeg( $newimg, ROOT_PATH . $ori );
 		imagedestroy( $im );
 	}
 	return;

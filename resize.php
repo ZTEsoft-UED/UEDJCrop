@@ -1,14 +1,14 @@
 <?php
-header("Content-Type:text/html;charset=utf-8");
+header("Content-Type:text/html;charset=UTF-8");
 
-include 'config.inc.php'; 
-include 'showChinaText.php'; 
+include 'config.inc.php';
+include 'showName.php'; 
 
 if( !$image = $_POST["img"] ){
     $ret['result_code'] = 101;
     $ret['result_des'] = "图片不存在";
 } else {
-    $image = ROOT_PATH . $image;
+    $image = ROOT_PATH .$image;
     $info = getImageInfo( $image);
     if( !$info ){
         $ret['result_code'] = 102;
@@ -44,29 +44,27 @@ if( !$image = $_POST["img"] ){
         // 对jpeg图形设置隔行扫描
         if('jpg'==$type || 'jpeg'==$type) 
             imageinterlace($thumbImg,1);
-        // 生成图片
+    
         $imageFun = 'image'.($type=='jpg'?'jpeg':$type);
-        $thumbname01 = str_replace("ori", "300", $image); 
+        $thumbname01 = str_replace("ori", "200", $image);
         $imageFun($thumbImg,$thumbname01,100); 
-        $thumbImg01 = imagecreatetruecolor(900,700); /*设置最大的切图尺寸*/
-        imagecopyresampled($thumbImg01,$thumbImg,0,0,$x,$y,900,600,$w,$h);
-   
-        // 生成图片
+        $thumbImg01 = imagecreatetruecolor(1500,1050);
+        imagecopyresampled($thumbImg01,$thumbImg,0,0,$x,$y,1500,1050,$w,$h);
+            // 生成图片
         $imageFun($thumbImg01,$thumbname01,100);
-
-        $destImg=str_replace(ROOT_PATH, "", $thumbname01);
-
-        new showChinaText ($destImg, $_POST['usign'] );  
         
-        imagedestroy($thumbImg01); 
+        $destImg=str_replace(ROOT_PATH, "", $thumbname01);
+        $destImg2=str_replace(ROOT_PATH, "", $thumbname01);
+
+        new showName ($destImg, $_POST['uname'] ,$_POST['usign'] );   
+        imagedestroy($thumbImg01);
         imagedestroy($thumbImg);
         imagedestroy($srcImg);
         $ret['result_code'] = 1;
-         $ret['result_des'] = array(
-            "big"   => $destImg
+        $ret['result_des'] = array(
+            "photo"   => str_replace(ROOT_PATH, "", $thumbname01)
         );
     }
 }
 echo json_encode($ret);
 exit();
-?>  

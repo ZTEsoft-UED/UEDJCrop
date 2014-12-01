@@ -17,11 +17,11 @@ param content  要在图片里显示的内容
 class showChinaText {  
     var $imgUrl = '1.jpg'; 
     var $text = '测试文字 - ZTEsoft'; 
-    var $font = 'D:/wamp/www/jCrop/fonts/msyhbd.ttc'; //如果没有要自己加载到相应的目录下 ,本地www,可替换
+    var $font = 'D:/DedeAMPZ/WebRoot/Default/photo/fonts/msyhbd.ttc'; //如果没有要自己加载到相应的目录下 ,本地www,可替换
     var $angle = 0;  
-    var $size = 15;  
-    var $showX =150;  
-    var $showY =650;   
+    var $size = 16;  
+    var $showX =30;  
+    var $showY =840;   
 
     function showChinaText($imgUrl='',$showText=''){
         $this->imgUrl = isset( $imgUrl ) ? $imgUrl : $this->imgUrl; 
