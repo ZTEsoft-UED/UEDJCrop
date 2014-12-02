@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"  type="text/css" /><!-- 图标1 -->
     <link rel="stylesheet" href="css/simple-line-icons.css" type="text/css" /><!-- 图标2 -->
     <link rel="stylesheet" href="css/style.css"             type="text/css" /><!-- 项目特有样式  -->
-    <link href="uploadify/uploadify.css" type="text/css" rel="stylesheet" /> 
-    <link rel="stylesheet" href="jcrop/jquery.Jcrop.css" type="text/css" />
-    <link rel="stylesheet" href="css/hai_tips.css"> 
+    <link rel="stylesheet" href="uploadify/uploadify.css"   type="text/css"  /> 
+    <link rel="stylesheet" href="jcrop/jquery.Jcrop.css"    type="text/css" />
+    <link rel="stylesheet" href="css/hai_tips.css"          type="text/css" > 
 
     <!--[if lt IE 9]>
       <script src="js/ie/html5shiv.js"></script>
@@ -39,7 +39,7 @@
             <a class="btn btn-link visible-xs"  data-toggle="class:nav-off-screen,open" data-target="#nav,html">
               <i class="icon-list"></i>
             </a>
-            <a  href="http://10.45.7.86/"  target="_blank" class="navbar-brand text-lt">
+          <a href="http://10.45.7.86/" target="_blank" class="navbar-brand text-lt" style="width: 252px;overflow: hidden;">
              <!--  <i class="icon-earphones"></i> -->
               <img src="images/logo.png" alt="ZSmart UED 上传照片">
               <span class="hidden-nav-xs m-l-sm hide">ZSmart UED</span>
@@ -65,19 +65,17 @@
           <section  class="hbox stretch">
             <section>
                 <section class="vbox">
-                    <section class="scrollable wrapper-lg padder-lg">  
+                    <section class="scrollable padder-lg">  
 
-                    
-                        <div class="row panel"> 
-                            
+                          <div class="title">
+                            <h1>照片收集</h1>
+                              <span> 您好,为了您更好的使用体验，请使用 IE9 及以上的浏览器</span>
+                          </div><!-- /照片收集 -->
+                        <div class="row panel">   
                             <form > 
                             <div class="col-sm-12">
-                                 <div class="col-sm-6"> 
-                                    <div class="alert alert-info">
-                                      <button type="button" class="close" data-dismiss="alert">×</button>
-                                      <i class="fa fa-ok-sign"></i><strong>您好!</strong> 为了您更好的使用体验，请使用 IE9 及以上的浏览器</a>。
-                                    </div>
-                                  <img src="images/readme.jpg" alt="说明" style="width:100%;"> 
+                                 <div class="col-sm-6">  
+                              <img src="images/readme.jpg" alt="说明" style="width: 900px; margin-left: 20%;">
                               <h4 class="m-t-lg m-b" id="tophead" >1、您的信息</h4>
                                <div class="form-group pull-in clearfix">
                                 <div class="col-sm-6">
@@ -91,43 +89,40 @@
                               </div>
                               <div class="form-group">
                                 <label>签名</label>
-                                <textarea class="form-control" rows="3"   maxlength="35"  id="usign"   value="" placeholder="为了让你的签名能够醒目一点，请控制在30个文字以内"></textarea>
+                                <textarea class="form-control" rows="3"   maxlength="35"  id="usign"  value="" placeholder="为了让你的签名能够醒目一点，请控制在30个文字以内"></textarea>
                               </div>
-                              <div class="form-group">
-                                    <div id="data2" style="display: none"> 
-                                      <a   target="_blank" id="avatar2"  href="images/default.jpg" title="查看已传图片">查看已传图片</a>   
-                                 </div>
-
-                               </div>
                            </div>
                            </div>
-                            <div class="col-sm-6 pf15">
+                            <div class="col-sm-10 pf15">
                                 <div > 
                                     <div class="m-b font14" > 
-                                        <h4 class=" m-b"> 2、上传照片：</h4> （请上传横版，比例为3:2的图片，为了保证图片质量，尺寸最小：为900*600。文件最大限制为10M <a   target="_blank" href="demo2.html" title="">点此查看样图1</a> &nbsp;&nbsp; <a   target="_blank" href="demo.html" title="">样图2</a>）
+                                         <h4 class=" m-b"> 2、上传照片：</h4> 
+                                         <span class=" ml15">（请上传横版，比例为3:2的图片，为了保证图片质量，尺寸最小：为900*600。文件最大限制为10M <a   target="_blank" href="demo.html" title="">点此查看样图</a> ）
+                                        </span>
                                         <input type="text" id="avatarUpload" value="" />
                                         <input type="hidden" id="img" name="img" />
                                         <input type="hidden" id="x" name="x" />
                                         <input type="hidden" id="y" name="y" />
                                         <input type="hidden" id="w" name="w" />
                                         <input type="hidden" id="h" name="h" />
-                                        <div >
+                                        <div  class=" ml15">
                                   <a  id="Upload" class="btn btn-s-md btn-success" style="display:none;">开始上传</a>
                                   <a href="javascript:$('#avatarUpload').uploadify('cancel', '*')"  class="btn btn-s-md btn-dark" style="display:none;">取消上传</a>
                                         </div>
                                     </div>
                                     <div class="clear"></div>
-                                    <div class="row imgchoose" style="display:none;">3、裁剪照片：<br /><img src="" id="target" /></div>
+                                    <div class="row imgchoose" style="display:none;">
+                                      <span  class="m-b">3、裁剪照片：</span>
+                                      <br /><img src="" id="target" /></div>
                                   <!--   <div class="row imgchoose" style="display:none;">
                                         照片预览：<br />
                                         <div style="width:200px;height:200px;margin:10px 10px 10px 0;overflow:hidden; float:left;"><img class="preview" id="preview3" src="" /></div> 
                                     </div> -->
                                     <div class="row">
-                                        <a  class=" btn btn-s-md btn-success" value="" id="avatar_submit" style="display:none;">确认裁剪</a>
+                                        <a    class=" btn btn-s-md btn-success ml15" value="" id="avatar_submit" style="display:none;">确认裁剪</a>
                                         <span id="tips"  style=" display:none;">正在裁剪，请稍后....</span>
-                                    </div>
-
-                                       <div class="row " id="avatar_msg" style="font-size:24px;font-weight:700;color:#f00;display:none;"> 4、操作成功，预览一下<a   target="_blank" id="avatar"  href="images/default.jpg" title="">你的图片</a>吧！</div> 
+                                    </div> 
+                                       <div class="row" id="avatar_msg" style="font-size:24px;font-weight:700;color:#f00;display:none;"> 4、操作成功，预览一下<a   target="_blank" id="avatar"  href="images/default.jpg" title="">你的图片</a>吧！</div> 
                                   
                                     <div class="row " id="Uimg"  style=" display:none;">  
                                     </div>
@@ -151,17 +146,23 @@
   <!-- 项目公共功能  -->
   <script src="js/ZSmart.js"></script>
   <script type="text/javascript" src="uploadify/jquery.uploadify-3.1.js"></script>
-  <script type="text/javascript" src="js/haiTips.js" charset="utf-8"></script>
-  <script type="text/javascript" src="js/index.js" charset="utf-8"></script>
-
+  <!-- <script type="text/javascript" src="jcrop/jquery.Jcrop.min.js"></script> --> 
+<script type="text/javascript" src="js/haiTips.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/index.js" charset="utf-8"></script>
 
 <script> 
-  <!-- //防止客户端缓存文件，造成uploadify.js不更新，而引起的“喔唷，崩溃啦”   -->  
-    var oHead = document.getElementsByTagName('HEAD').item(0);  
-    var oScript= document.createElement("script");  
-    oScript.type = "text/javascript";  
-    oScript.src="jcrop/jquery.Jcrop.min.js";  
-    oHead.appendChild( oScript);  
+  <!-- //防止客户端缓存文件，造成uploadify.js不更新，而引起的“喔唷，崩溃啦”   --> 
+
+    var oHead = document.getElementsByTagName('HEAD').item(0); 
+
+    var oScript= document.createElement("script"); 
+
+    oScript.type = "text/javascript"; 
+
+    oScript.src="jcrop/jquery.Jcrop.min.js"; 
+
+    oHead.appendChild( oScript); 
+
 </script>  
 </body>
 </html>

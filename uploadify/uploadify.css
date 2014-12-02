@@ -101,7 +101,7 @@ body{font-family: Arial, '微软雅黑';margin:0 auto;padding:0; background:url(
     .section { background-color:#fff; padding:10px;}
     .row span.label{float:left;position:relative;line-height:30px;margin-left:-94px;width:84px;text-align:right; color:#5b5b5b;}
     .btn_submit {background:url(../images/submit.gif) no-repeat;width:70px;height:29px;border:0;}
-    .btn {
+  .btn {
         height:35px;
         width: 120px;
         margin-bottom: 0;
@@ -111,9 +111,9 @@ body{font-family: Arial, '微软雅黑';margin:0 auto;padding:0; background:url(
         text-align: center;
         cursor: pointer;
         float: left;
-        margin-right: 20px;
         color: #fff;
         text-decoration:none;
+        margin: 10px 20px 10px 0; 
     }
  
     .page-header-fixed .page-container{
@@ -122,7 +122,7 @@ body{font-family: Arial, '微软雅黑';margin:0 auto;padding:0; background:url(
  .uploadify-button, .uploadify-button ,.btn2 {
 	height:35px;
     width: 120px;
-    line-height: 35px;
+    line-height: 38px;
 	text-align: center;
     margin-bottom: 0;
 	display: inline-block;

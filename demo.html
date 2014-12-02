@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" class="ZSmart">
+<html lang="en" >
 <head>  
     <meta charset="utf-8" />
-    <title>ZSmart UED 上传照片</title>
+    <title>ZSmart UED 照片样图</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link rel="stylesheet" href="css/fish-desktop.css"      type="text/css" /><!-- fish-desktop  -->
     <link rel="stylesheet" href="css/ZSmart.css"            type="text/css" /><!-- ZSmart UED UI 样式 --> 
@@ -14,10 +14,31 @@
     <![endif]-->
     <style type="text/css">
       body{
-        color: #788188;
-        background-color: #f2f4f8;
-        -webkit-font-smoothing: antialiased;
-        line-height: 1.40;
+          color: #788188;
+          -webkit-font-smoothing: antialiased;
+          line-height: 1.40;
+          overflow: visible;
+      }
+     .padder-lg  img {
+         display: inline-block;
+         border: 1px solid #2d2d2d;
+         box-shadow: 0 1px 1px #ccc;
+         margin: 10px;
+         margin-left: 0px;
+         transform: scale(1, 1);
+      }
+       .padder-lg  img:hover{
+        border: 1px solid  #f1ae4e;
+        box-shadow: 0 1px 1px #f1ae4e; 
+        transform: scale(1.05, 1.05);
+      -webkit-transition: all .3s ease-in-out 0s;
+      -moz-transition: all .3s ease-in-out 0s;
+      -o-transition: all .3s ease-in-out 0s;
+      transition: all .3s ease-in-out 0s;
+       }
+     .vbox{ 
+         font-size: 15px;
+         color: #2d2d2d;
       }
     </style>  
 </head>
@@ -53,15 +74,13 @@
       </header><!-- /header --> 
       <section>
           <section  class="hbox stretch">
-            <section>
-                <section class="vbox">
                     <section class="scrollable wrapper-lg padder-lg">  
-                        <div class=" ">
-                         <img src="images/demo.jpg" width="690" height="480">
+                        <div class="">
+                          <div>最终生成图片 : (标准5寸照片：1500px * 1050px)</div>
+                            <img src="images/demo3.jpg" width="660" height="440">
+                            <img src="images/demo.jpg" width="660" height="440" > 
                         </div>
-                    </section>
-                </section>
-            </section>
+                    </section> 
             <!-- /右侧主内容区 -->
           </section><!-- /hbox -->
       </section>

@@ -34,7 +34,31 @@ body{
 	margin-top: 15px;
   margin-left: 0px; 
 	margin-right: 0px; 
-	width: 142%;
+	width: 100%; 
+}
+.imgchoose{
+  width: 142%;
+  overflow: visible!important;
+}
+.ml15{
+    padding-left:20px;
+
+}
+.imgchoose >.m-b{
+  display: inline-block;
+  margin-bottom: 10px;
+
+}
+.ml15, .form-group{
+  padding-left:20px;
+  margin-bottom: 25px; 
+}
+.uploadify{
+  padding-left: 20px;
+}
+.scrollable > .row{
+  border: 1px solid #E7E8EC;
+  box-shadow: 0 0px 1px #ccc;
 }
 .pf15{
 	padding-left: 30px;
@@ -69,13 +93,13 @@ body{font-family: Arial, '微软雅黑';margin:0 auto;padding:0; background:url(
         color: #fff;
         text-decoration:none;
     }
-      #avatar_msg{
-      	font-weight: normal;
-      }
-      #tips{
-      	line-height: 35px;
-      	height: 35px;
-      }
+  #avatar_msg{
+  	font-weight: normal;
+  }
+  #tips{
+    line-height: 55px;
+    height: 62px; 
+  }
    #avatar_msg >a{
    	 text-decoration: underline;
    	 font-weight: normal;
@@ -89,9 +113,9 @@ body{font-family: Arial, '微软雅黑';margin:0 auto;padding:0; background:url(
 /* .jcrop-holder{
  	padding-left: 15px;
  }*/
-    .page-header-fixed .page-container{
-        margin-top: 0;
-    }
+.page-header-fixed .page-container{
+    margin-top: 0;
+}
  .uploadify-button, .uploadify-button ,.btn2 {
 	height:35px;
     width: 120px;
@@ -113,12 +137,12 @@ body{font-family: Arial, '微软雅黑';margin:0 auto;padding:0; background:url(
 	background-color: #58A2F2;
 	margin-right: 20px;
 }
-   .yellow {
-        background-color: #FFA200;
-    }
-    .black {
-        background-color: #33383E;
-    }
+.yellow {
+    background-color: #FFA200;
+}
+.black {
+    background-color: #33383E;
+}
 /* .uploadify-button:hover,.btn2:hover {
 
 
@@ -126,7 +150,19 @@ body{font-family: Arial, '微软雅黑';margin:0 auto;padding:0; background:url(
 	-webkit-box-shadow: 0 10px 10px 0 rgba(255, 255, 255, .10)inset, 0 2px 7px 0 rgba(0, 0, 0, .2);
 	box-shadow: 0 10px 10px 0 rgba(255, 255, 255, .10)inset, 0 2px 7px 0 rgba(0, 0, 0, .2);
 }*/
-
+.title{
+  padding-left: 5px;
+  padding-bottom: 0;
+  font-size:14px;
+}
+.title h1{
+  padding: 0px 0  5px 0px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.header .nav > li > a:hover, .header .nav > li > a:focus{
+  background-color:#f1ae4e;
+}
  .uploadify-button:hover,.btn2:hover  {
 	color: #FFA200;
 	background-color: #fff;
@@ -134,8 +170,12 @@ body{font-family: Arial, '微软雅黑';margin:0 auto;padding:0; background:url(
 }
 
 .header.navbar, .footer.navbar {
-background-color: #5EB95E;
-
+  background-color:#448aca;
+  top: 0;
+  z-index: 999;
+  background-color: #448ACA;
+  box-shadow: 0 2px 2px #D3D3D3;
+  min-height: 60px;
 }	
 .header-inner {
 	overflow: hidden;
@@ -163,6 +203,7 @@ color: #fff;
 	transition: all 0.3s;
 }
   .nav > li a{
+    border-radius: 4px;
   	color: #fff;
   	padding: 10px 20px; 
   	-webkit-transition: all 0.3s;

@@ -9,7 +9,7 @@ if( !$image = $_POST["img"] ){
     $ret['result_des'] = "图片不存在";
 } else {
     $image = ROOT_PATH .$image;
-    $info = getImageInfo( $image);
+    $info = getImageInfo( $image); 
     if( !$info ){
         $ret['result_code'] = 102;
         $ret['result_des'] = "图片不存在";
@@ -50,11 +50,10 @@ if( !$image = $_POST["img"] ){
         $imageFun($thumbImg,$thumbname01,100); 
         $thumbImg01 = imagecreatetruecolor(1500,1050);
         imagecopyresampled($thumbImg01,$thumbImg,0,0,$x,$y,1500,1050,$w,$h);
-            // 生成图片
+        // 生成图片
         $imageFun($thumbImg01,$thumbname01,100);
         
         $destImg=str_replace(ROOT_PATH, "", $thumbname01);
-        $destImg2=str_replace(ROOT_PATH, "", $thumbname01);
 
         new showName ($destImg, $_POST['uname'] ,$_POST['usign'] );   
         imagedestroy($thumbImg01);

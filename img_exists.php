@@ -1,5 +1,6 @@
 <?php 
 
+/*文件对比 是否重复用的*/
 header("Content-Type:text/html;charset=UTF-8"); 
 $s = 'D:/DedeAMPZ/WebRoot/Default/photo/uploads/01/'.$_POST['uid'].'.jpg';
  
