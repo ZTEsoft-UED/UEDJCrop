@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="uploadify/uploadify.css"   type="text/css"  /> 
     <link rel="stylesheet" href="jcrop/jquery.Jcrop.css"    type="text/css" />
     <link rel="stylesheet" href="css/hai_tips.css"          type="text/css" > 
-
+    <link rel="stylesheet" type="text/css" href="css/iealert/style.css" />
     <!--[if lt IE 9]>
       <script src="js/ie/html5shiv.js"></script>
       <script src="js/ie/respond.min.js"></script>
@@ -69,7 +69,7 @@
 
                           <div class="title">
                             <h1>照片收集</h1>
-                              <span> 您好,为了您更好的使用体验，请使用 IE9 及以上的浏览器</span>
+                              <span> 您好,为了保证最佳的体验效果,推荐您使用Chrome、Firefox浏览器,或者使用 IE9内核 及以上的浏览器。如果出现问题不能使用，请邮件联系：0027006546</span>
                           </div><!-- /照片收集 -->
                         <div class="row panel">   
                             <form > 
@@ -89,7 +89,7 @@
                               </div>
                               <div class="form-group">
                                 <label>签名</label>
-                                <textarea class="form-control" rows="3"   maxlength="35"  id="usign"  value="" placeholder="为了让你的签名能够醒目一点，请控制在30个文字以内"></textarea>
+                                <textarea class="form-control" rows="3"   maxlength="31"  id="usign"  value="" placeholder="为了让你的签名能够醒目一点，请控制在30个文字以内"></textarea>
                               </div>
                            </div>
                            </div>
@@ -97,7 +97,7 @@
                                 <div > 
                                     <div class="m-b font14" > 
                                          <h4 class=" m-b"> 2、上传照片：</h4> 
-                                         <span class=" ml15">（请上传横版，比例为3:2的图片，为了保证图片质量，尺寸最小：为900*600。文件最大限制为10M <a   target="_blank" href="demo.html" title="">点此查看样图</a> ）
+                                         <span class=" ml15">（请上传横版，比例为3:2的图片，为了保证图片质量，尺寸最小：为900*630。文件最大限制为10M <a   target="_blank" href="demo.html" title="">点此查看样图</a> ）
                                         </span>
                                         <input type="text" id="avatarUpload" value="" />
                                         <input type="hidden" id="img" name="img" />
@@ -122,7 +122,7 @@
                                         <a    class=" btn btn-s-md btn-success ml15" value="" id="avatar_submit" style="display:none;">确认裁剪</a>
                                         <span id="tips"  style=" display:none;">正在裁剪，请稍后....</span>
                                     </div> 
-                                       <div class="row" id="avatar_msg" style="font-size:24px;font-weight:700;color:#f00;display:none;"> 4、操作成功，预览一下<a   target="_blank" id="avatar"  href="images/default.jpg" title="">你的图片</a>吧！</div> 
+                                       <div class="row" id="avatar_msg" style="font-size:24px;font-weight:700;color:#f00;display:none;"> 4、操作成功，预览一下<a  href="#" id="avatar" title="查看图片">你的图片</a>吧！</div> 
                                   
                                     <div class="row " id="Uimg"  style=" display:none;">  
                                     </div>
@@ -139,7 +139,7 @@
       </section>
       <!-- /主体内容 END -->
   </section>
-  <div id="data" style="display: none"> 发现你已经上传过图片啦，重新上传会覆盖原图，你确定要重新上传吗？</div>
+  <div id="data" style="display: none"> 发现你已经上传过图片啦，点击确认会移除已上传的图片，你确定要重新上传吗？</div>
   <script src="js/jquery.js"></script>
    <!-- Bootstrap  -->
   <script src="js/bootstrap.js"></script>
@@ -147,8 +147,10 @@
   <script src="js/ZSmart.js"></script>
   <script type="text/javascript" src="uploadify/jquery.uploadify-3.1.js"></script>
   <!-- <script type="text/javascript" src="jcrop/jquery.Jcrop.min.js"></script> --> 
-<script type="text/javascript" src="js/haiTips.js" charset="utf-8"></script>
-<script type="text/javascript" src="js/index.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/haiTips.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/index.js" charset="utf-8"></script>
+  <script src="js/iealert.js" type="text/javascript"></script>
+
 
 <script> 
   <!-- //防止客户端缓存文件，造成uploadify.js不更新，而引起的“喔唷，崩溃啦”   --> 
@@ -163,6 +165,11 @@
 
     oHead.appendChild( oScript); 
 
+
+  $(document).ready(function() {
+    $("body").iealert();
+  });
 </script>  
+
 </body>
 </html>

@@ -18,20 +18,20 @@ class showName {
     var $text = '名字 - ZTEsoft'; 
     var $font = 'fonts/msyhl.ttc'; //如果没有要自己加载到相应的目录下 ,本地www,可替换
     var $angle = 0;  
-    var $size = 33;  
-    var $showX =25;  
-    var $showY =1010;   
+    var $size = 60;  
+    var $showX =20;  
+    var $showY =1533;   
 
     var $text2 = '签名 - ZTEsoft'; 
     var $font2 = 'fonts/msyhl.ttc'; //如果没有要自己加载到相应的目录下 ,本地www,可替换 
-      var $size2 = 33;  
+    var $size2 = 60;  
     var $angle2 = 0;  
-    var $showX2 =180;  
-    var $showY2 =1010;   
+    var $showX2 =273;  
+    var $showY2 =1533;   
 
     function showName($imgUrl='',$showText='',$usign=''){
         $this->imgUrl = isset( $imgUrl ) ? $imgUrl : $this->imgUrl; 
-        $this->text   = isset( $showText ) ? $showText.": " : $this->text; 
+        $this->text   = isset( $showText ) ? $showText.":" : $this->text; 
         $this->text2  = isset( $usign ) ? $usign : $this->text2; 
         $this->show(); 
     }
@@ -54,14 +54,14 @@ class showName {
         //输出头内容  
        header("Content-type: image/jpg");
         //建立图象  
-      //  $image = imagecreate(1500,1050);   
+         //  $image = imagecreate(2250,1575);   
         $image = imagecreatefromjpeg( $this->imgUrl ); //这里是原始图片
         //定义颜色  
         $red   = ImageColorAllocate($image, 255, 0, 0 );  
         $white = ImageColorAllocate( $image, 255, 255, 255 );  
         $black = ImageColorAllocate( $image, 0, 0, 0 );  
         //填充颜色  
-         ImageFilledRectangle($image,0,1390, 1500,950,$white);   
+         ImageFilledRectangle($image,0,2200, 2250,1428,$white);  
         //显示文字  
         $txt = $this->createText( $this->text ); 
         $txt2 = $this->createText ( $this->text2 );  
@@ -69,7 +69,7 @@ class showName {
          imagettftext( $image, $this->size, $this->angle, $this->showX, $this->showY, $black, $this->font, $txt ); 
          imagettftext ( $image, $this->size2, $this->angle2, $this->showX2, $this->showY2, $black, $this->font2, $txt2 );    
         //显示图形  //imagejpeg( $image );   
-        imagegif( $image, $this->imgUrl);  
+        imagejpeg( $image, $this->imgUrl);  
         ImageDestroy ( $image ); 
     }  
 }  

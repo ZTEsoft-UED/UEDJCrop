@@ -40,8 +40,8 @@ body{
   width: 142%;
   overflow: visible!important;
 }
-.ml15{
-    padding-left:20px;
+.SWFUpload_0_0,.ml15{
+    padding-left:25px;
 
 }
 .imgchoose >.m-b{
@@ -50,11 +50,16 @@ body{
 
 }
 .ml15, .form-group{
-  padding-left:20px;
-  margin-bottom: 25px; 
+  padding-left:25px;
+  margin-bottom: 35px; 
+}
+ .m-b > .ml15{
+  font-size: 15px;
+  font-weight: bold;
+  color: #f05050;
 }
 .uploadify{
-  padding-left: 20px;
+  padding-left: 25px;
 }
 .scrollable > .row{
   border: 1px solid #E7E8EC;
@@ -68,7 +73,12 @@ body{
 .m-b a{
 	color: #58A2F2;
 }
-
+.col-sm-6 label{
+  font-size: 14px;
+}
+.col-sm-12 .col-sm-6 >img{
+  margin-top: 30px;
+}  
 /*-----------------------------页面 -----------------------------*/
 
 /*页面*/
@@ -99,6 +109,11 @@ body{font-family: Arial, '微软雅黑';margin:0 auto;padding:0; background:url(
   #tips{
     line-height: 55px;
     height: 62px; 
+    font-size: 16px;
+    color: rgb(255, 0, 0);
+  }
+  #avatar{
+    cursor: pointer;
   }
    #avatar_msg >a{
    	 text-decoration: underline;
@@ -156,7 +171,7 @@ body{font-family: Arial, '微软雅黑';margin:0 auto;padding:0; background:url(
   font-size:14px;
 }
 .title h1{
-  padding: 0px 0  5px 0px;
+  padding:15px 0 1px 0px;
   font-size: 18px;
   font-weight: 700;
 }

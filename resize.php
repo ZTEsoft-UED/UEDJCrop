@@ -3,8 +3,7 @@ header("Content-Type:text/html;charset=UTF-8");
 
 include 'config.inc.php';
 include 'showName.php'; 
-
-if( !$image = $_POST["img"] ){
+ if( !$image = $_POST["img"] ){
     $ret['result_code'] = 101;
     $ret['result_des'] = "图片不存在";
 } else {
@@ -48,13 +47,12 @@ if( !$image = $_POST["img"] ){
         $imageFun = 'image'.($type=='jpg'?'jpeg':$type);
         $thumbname01 = str_replace("ori", "200", $image);
         $imageFun($thumbImg,$thumbname01,100); 
-        $thumbImg01 = imagecreatetruecolor(1500,1050);
-        imagecopyresampled($thumbImg01,$thumbImg,0,0,$x,$y,1500,1050,$w,$h);
+        $thumbImg01 = imagecreatetruecolor(2250,1575);
+        imagecopyresampled($thumbImg01,$thumbImg,0,0,$x,$y,2250,1575,$w,$h);
         // 生成图片
         $imageFun($thumbImg01,$thumbname01,100);
         
-        $destImg=str_replace(ROOT_PATH, "", $thumbname01);
-
+        $destImg=str_replace(ROOT_PATH, "", $thumbname01); 
         new showName ($destImg, $_POST['uname'] ,$_POST['usign'] );   
         imagedestroy($thumbImg01);
         imagedestroy($thumbImg);

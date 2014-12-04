@@ -10,8 +10,8 @@ function resize( $ori ){
 	$info = getImageInfo( ROOT_PATH . $ori );
 	if( $info ){
         //上传图片后切割的最大宽度和高度
-		$width = 1500;
-		$height =1050;
+		$width = 2250; //2250/1575 // 1500*1050
+		$height =1575;
 		$scrimg = ROOT_PATH . $ori;
         if( $info['type']=='jpg' || $info['type']=='jpeg' ){
             $im = imagecreatefromjpeg( $scrimg );
@@ -23,7 +23,7 @@ function resize( $ori ){
 			$im = imagecreatefrompng( $scrimg );
 		}
 		if( $info['width']<=$width && $info['height']<=$height ){
-			return;
+		// return;
 		} else {
 			if( $info['width'] > $info['height'] ){
 				$height = intval( $info['height']/($info['width']/$width) );
@@ -46,8 +46,8 @@ function resize2( $ori2 ){
 	$info2 = getImageinfo( ROOT_PATH . $ori2 );
 	if( $info2 ){
         //上传图片后切割的最大宽度和高度
-		$width = 900;
-		$height =630;
+		$width2 = 900;
+		$height2 =630;
 		$scrimg = ROOT_PATH . $ori2;
         if( $info2['type']=='jpg' || $info2['type']=='jpeg' ){
             $im = imagecreatefromjpeg( $scrimg );
@@ -58,21 +58,22 @@ function resize2( $ori2 ){
 		if( $info2['type']=='png' ){
 			$im = imagecreatefrompng( $scrimg );
 		}
-		if( $info2['width']<=$width && $info2['height']<=$height ){
-			return;
+		if( $info2['width']<=$width2 && $info2['height']<=$height2 ){
+		return ; 
 		} else {
 			if( $info2['width'] > $info2['height'] ){
-				$height = intval( $info2['height']/($info2['width']/$width) );
+				$height2 = intval( $info2['height']/($info2['width']/$width2) );
 			} else {
-				$width = intval( $info2['width']/($info2['height']/$height) );
+				$width2 = intval( $info2['width']/($info2['height']/$height2) );
 			}
 		}
-		$newimg = imagecreatetruecolor( $width, $height );
-		imagecopyresampled( $newimg, $im, 0, 0, 0, 0, $width, $height, $info2['width'], $info2['height'] );
+		$newimg = imagecreatetruecolor( $width2, $height2 );
+		imagecopyresampled( $newimg, $im, 0, 0, 0, 0, $width2, $height2, $info2['width'], $info2['height'] );
 		imagejpeg( $newimg, ROOT_PATH . $ori2 );
 		imagedestroy( $im );
-	}
-	return ;
+	} 
+	return ; 
+
 }
 
 function getImageInfo( $img ){

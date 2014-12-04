@@ -2,6 +2,7 @@
 $(function() { 
     $("#Upload").click(function(e){  
      e.preventDefault;
+     $("#Upload").hide();
      if (VerificationuserName()&&VerificationId()&&VerificationUsign()) {
          go(); 
       } else{
@@ -25,7 +26,7 @@ $(function() {
         'progressData'      : 'percentage', //speed 设置上传进度显示方式，percentage显示上传百分比，speed显示上传速度
         'swf'               : 'uploadify/uploadify.swf',
         'uploader'          : 'upload.php',
-        'fileTypeExts'      : '*.gif; *.jpg; *.jpeg; *.png;',//设置上传文件类型为常用图片格式  
+        'fileTypeExts'      : ' *.jpg; *.jpeg; *.png;',//设置上传文件类型为常用图片格式  
         'fileSizeLimit'     : '10245KB', //设置上传文件大小单位kb 
         'onUploadSuccess' : function(file, data, response) {
             var msg = $.parseJSON(data);
@@ -38,15 +39,15 @@ $(function() {
                  }; 
                 // $(".preview").attr("src",msg.result_des);
                 $('#target').Jcrop({
-                    minSize: [300,200],
-                    setSelect: [0,0,600,300],
+                    minSize: [300,210],
+                    setSelect: [0,0,900,630],
                     onChange: updatePreview, //更新缩略图，这里暂时没用到。
                     onSelect: updatePreview,
                     onSelect: updateCoords,
                     allowResize: true,
                     fadeTime    : 400,
                     dragEdges   : true,
-                    aspectRatio  : 1.45//设置比例
+                    aspectRatio  : 1.428//设置比例
                 },
                 function(){
                     // 获取实际尺寸
@@ -77,6 +78,7 @@ $(function() {
         'onCancel' : function(file) {
             alert('您放弃了 ' + file.name + '的上传.');
         }
+
     });
 
     $("#id").blur(function(){
@@ -91,14 +93,27 @@ $(function() {
                       
                     } else if (msg.result_code == 3) { 
                        $.hai_tips({
-                          title : '您好 ：'+$("#name").val(),
+                          title : '您好 '+$("#name").val(),
                           content : document.getElementById('data'),
                            show: true, 
                            opacity:  0.7,
-                           ok : function() { }, 
+                           ok : function() { 
+                              $.ajax({
+                                type: "POST",
+                                url: "remove.php",
+                                data: {'uid':$("#id").val()},
+                                dataType: "json",
+                                success: function(msg){
+                                    if( msg.result_code == 1 ){
+                                       console.log("旧删除图片成功");
+                                    }  
+                                    
+                                }
+                            });
+                           }, 
                            cancel : function() {
                             //  $('#avatar2').attr('href',msg.result_des.photo);
-                               window.open (msg.result_des.photo,'newwindow','height=600,width=900,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no') 
+                               window.open(msg.result_des.photo,'newwindow','height=600,width=900,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no') 
                              }
                         }); 
                     }
@@ -107,16 +122,22 @@ $(function() {
        };
     })
     
+ 
+     var photos;
+     $('#avatar').click(function(e){
+       e.preventDefault;
+        window.open(photos,'newwindow','height=630,width=900,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no') 
+
+     });
+
     $("#avatar_submit").click(function(){ 
         var img1 = $("#img").val();
-        console.log(img1); 
-         img  =  img1.replace("02","01"); 
-         console.log(img); 
-        var x = parseInt($("#x").val())*1.66;
-        var y = parseInt($("#y").val())*1.66;
-        var w = parseInt($("#w").val())*1.66;
-        var h = parseInt( $("#h").val())*1.66;
-        if( checkCoords() ){  
+        img  =  img1.replace("02","01"); 
+        var x = parseInt($("#x").val())*2.5;
+        var y = parseInt($("#y").val())*2.5;
+        var w = parseInt($("#w").val())*2.5;
+        var h = parseInt( $("#h").val())*2.5;
+        if( checkCoords()){  
             $("#tips").show();
             $.ajax({
                 type: "POST",
@@ -125,24 +146,26 @@ $(function() {
                 dataType: "json",
                 success: function(msg){
                     if( msg.result_code == 1 ){
-                          $('#avatar_msg').show();
-                          $('#avatar').attr('href',msg.result_des.photo); 
-                          $('#Uimg').show();
+                            $('#avatar_msg').show();
+                            //$('#avatar').attr('href',msg.result_des.photo);  
+                             photos =  msg.result_des.photo; 
+                            $('#Uimg').show();
                             $("#tips").html("裁剪成功");
                             $("#avatar_submit").hide();
                         $('html,body').animate({scrollTop:$('#avatar_msg').offset().top-300},1000,'swing',function(){
                      
                          });
                     } else {
-                        alert("图片没弄好，失败咯");
+                        alert("图片裁剪失败");
                     }
                 }
             });
         }
     });
+
+
 }); 
-
-
+  
     //照片裁剪
     var jcrop_api, boundx, boundy;
     

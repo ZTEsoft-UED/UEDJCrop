@@ -15,7 +15,7 @@
             height:'auto',           //tips高度 
             opacity:0.75,            //tips遮罩层透明度
             show:true,               //tips是否立即显示弹出层 
-            overlayClose:true,       //tips点击遮罩层是否可以关闭
+            overlayClose:false,       //tips点击遮罩层是否可以关闭
             overlayColor:'#4F4F4F',  //tips的遮罩层颜色
             type:null,               //消息类型：tips，配合自动关闭 time使用
             time:3,                  //自动关闭（多少秒后关闭），和type使用 ，默认3秒
@@ -101,7 +101,7 @@
 
                     //判断点击遮罩层是否可以关闭
                     if(plugin.settings.overlayClose){
-                         plugin.overlay.bind('click', function() {plugin.close();});
+                  plugin.overlay.bind('click', function() {plugin.close();});
                     }
                     plugin.overlay.appendTo('body');
                 }else{

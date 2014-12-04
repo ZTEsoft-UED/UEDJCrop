@@ -29,10 +29,15 @@ if (!empty($_FILES)) {
     if( !is_dir($targetPath2) ){
         mkdir($targetPath2,0777,true);
     } 
+    if( !is_dir($targetPath3) ){
+        mkdir($targetPath3,0777,true);
+    } 
     /*用来截取的*/
     $new_file_name = $uid.'.'.$ext;
     $targetFile = $targetPath . $new_file_name;
-    move_uploaded_file($tempFile,$targetFile); //用move_uploaded_file()函数实现文件上传，服务器端限制了上传文件的大小，
+    move_uploaded_file($tempFile,$targetFile); 
+    
+    //用move_uploaded_file()函数实现文件上传，服务器端限制了上传文件的大小，
     /* PHP的文件上传受到php.ini以下这些设置的影响:    去php.ini 设置; 
 
     Maximum size of POST data that PHP will accept. 
